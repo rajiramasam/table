@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book List</title>
+</head>
+<body>
+    <h1>Book List</h1>
+    {% if members %}
+    <table border="2">
+        <tr>
+            <th>Id</th>
+            <th>Book Title</th>
+            <th>Author</th>
+            <th>Publication Date</th>
+            <th>Price</th>
+            <th>Description</th>
+        </tr>
+        {% for x in members %}
+        <tr>
+            <td>{{ x.id }}</td>
+            <td>{{ x.title }}</td>
+            <td>{{ x.author }}</td>
+            <td>{{ x.publication_date }}</td>
+            <td>{{ x.price }}</td>
+            <td>
+                {% if x.is_expensive %}
+                <strong>Price is high</strong>
+                {% else %}
+                <strong>Price is low</strong>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No books available.</p>
+    {% endif %}
+</body>
+</html>

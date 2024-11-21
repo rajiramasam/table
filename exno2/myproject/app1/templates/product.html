@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Product List</h1>
+    {% if members %}
+    <table border="2">
+        <tr>
+            <th>Id</th>
+            <th>Product name</th>
+            <th>description</th>
+            <th>price</th>
+            <th>quantity</th>
+            <th>Total</th>
+        </tr>
+        {% for x in members %}
+        <tr>
+            <td>{{ x.id }}</td>
+            <td>{{ x.name }}</td>
+            <td>{{ x.description}}</td>
+            <td>{{ x.price }}</td>
+            <td>{{ x.quantity }}</td>
+            <td>
+                <strong>{{x.calculate_total_cost}}</strong>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No marks available.</p>
+    {% endif %}
+</body>
+</html>

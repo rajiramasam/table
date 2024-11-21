@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Order List</h1>
+    {% if members %}
+    <table border="2">
+        <tr>
+            <th>Id</th>
+            <th>order_name</th>
+            <th>customer_name</th>
+            <th>order_date</th>
+            <th>total_amount</th>
+            <th>Value of order</th>
+        </tr>
+        {% for x in members %}
+        <tr>
+            <td>{{ x.id }}</td>
+            <td>{{ x.order_number }}</td>
+            <td>{{ x.customer_name}}</td>
+            <td>{{ x.order_date }}</td>
+            <td>{{ x.total_amount }}</td>
+            <td>
+                {% if x.is_high_value %}
+                <strong>order is high</strong>
+                {% else %}
+                <strong>ordr is low</strong>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No marks available.</p>
+    {% endif %}
+</body>
+</html>
